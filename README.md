@@ -77,7 +77,42 @@ and `-b` for the number of 'burn-in' steps to discard:
     python depletion_mcmc.py datafile.csv -s 1000 -b 200 -n 200
 
 
-For more options, run the help option:
+By default the depletion sequences are fitted for each component and the uncertainty on the depletion
+strength ([Zn/Fe]-fit, or _D_) is used as a prior. The depletion is then allowed to vary within this
+prior while sampling the metallicities. If instead you want to fix the depletion strengths to their
+best-fit values, run the script with the `-f` option.
+
+The hydrogen column density is distributed randomly among all components for each sample. This is done 
+by drawing a random weight for each component between 1 and _w_ (100 by default). 
+The weights are normalized such that they sum to 1 and each component is then assigned that fraction
+of the total hydrogen column density.
+Depending on the value of _w_, components can have more or less weight (statistically speaking).
+By lower _w_, individual components will have more similar weight, whereas a larger number will have
+more diverse weights on average. This value can be changed by setting the option `-w`:
+
+    python depletion_mcmc.py datafile.csv -w 10
+
+
+To see all the options from the command line, run:
 
     python depletion_mcmc.py -h
+
+
+The results from the MCMC are saved to the directory `output/` by default. This can be changed by setting
+the `-o` option. The code saves:
+
+    - the MCMC chains as a numpy array (.npy) and plots the chains for each
+    variable (the dashed vertical lines show the _burn-in_),
+
+    - the best-fit parameters as a txt file,
+
+    - the fit report,
+
+    - a figure showing the depletion sequences for each component and the total columns
+
+    - and a figure showing the parameter covariance and marginalized histograms.
+    In the histogram plots, the best-fit value is indicated
+    as the blue lines, whereas red lines indicate the input values if running on simulated data.
+
+All files are named according to their input filename to keep track of everything.
 
