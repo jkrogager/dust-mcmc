@@ -1,0 +1,7 @@
+# Input parameter file for simulated depletion patterns
+# Each component is given as a separate row
+logZ, logNH, [Zn/Fe]
+-0.5, 20.9, 1.5
+-1.0, 20.5, 0.5
+-0.7, 20.1, 0.8
+-0.2, 20.0, 1.9
