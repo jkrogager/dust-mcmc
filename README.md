@@ -36,6 +36,33 @@ ranges of metallicity, logN(H) and [Zn/Fe]. To check the parameter ranges, run:
 This generated file can then be passed to the MCMC sampler.
 
 
+## Generating a large grid of test data
+
+Using the script `simulate_many.py` you can generate many random realisations with varying number of
+components and elements. To generate a default set of all elements with 2 components for 100 systems,
+run the command:
+
+    python simulate_many.py
+
+The simulated column density tables will be saved to the folder `data/`.
+
+You can vary the number of components using the `-n` option, and the elements to simulate using the `-e` option:
+
+    python simulate_many.py 200 -n 4 -e Si S Zn Fe Ti --dir data_N4
+
+This command will generate 200 systems with 4 random components only including the elements silicon, sulphur, zinc, iron and titanium. The output files will be saved in the `data_N4` folder.
+
+
+## Column density table format
+The column density tables are CSV files following the format of the [test file](HD62542_coldens.csv).
+Each row corresponds to one element which must be stated as the first column (column `ion`).
+The second and third columns are the total column densities and their uncertainties (in log units; 
+column names: `total` and `total_err`). The remaining columns provide the column densities for individual 
+columns and their uncertainties (column names: `comp1`, `comp1_err`, `comp2`, `comp2_err` etc.). 
+Not all components need to have measurements for all elements. But all elements must have non-zero 
+uncertainties (i.e., not limits are included).
+
+
 ## Running the MCMC sampling
 
 The script `depletion_mcmc.py` runs the sampler for 5000 iterations with 100 walkers 
