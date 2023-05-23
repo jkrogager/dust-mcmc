@@ -49,3 +49,8 @@ and `-b` for the number of 'burn-in' steps to discard:
 
     python depletion_mcmc.py datafile.csv -s 1000 -b 200 -n 200
 
+
+For more options, run the help option:
+
+    python depletion_mcmc.py -h
+
