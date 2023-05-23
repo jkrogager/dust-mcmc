@@ -101,18 +101,17 @@ To see all the options from the command line, run:
 The results from the MCMC are saved to the directory `output/` by default. This can be changed by setting
 the `-o` option. The code saves:
 
-    - the MCMC chains as a numpy array (.npy) and plots the chains for each
-    variable (the dashed vertical lines show the _burn-in_),
+- the MCMC chains as a numpy array (.npy) and plots the chains for each variable (the dashed vertical lines show the _burn-in_),
 
-    - the best-fit parameters as a txt file,
+- the best-fit parameters as a txt file,
 
-    - the fit report,
+- the fit report,
 
-    - a figure showing the depletion sequences for each component and the total columns
+- a figure showing the depletion sequences for each component and the total columns
 
-    - and a figure showing the parameter covariance and marginalized histograms.
-    In the histogram plots, the best-fit value is indicated
-    as the blue lines, whereas red lines indicate the input values if running on simulated data.
+- and a figure showing the parameter covariance and marginalized histograms.
+  In the histogram plots, the best-fit value is indicated
+  as the blue lines, whereas red lines indicate the input values if running on simulated data.
 
 All files are named according to their input filename to keep track of everything.
 
