@@ -39,9 +39,13 @@ This generated file can then be passed to the MCMC sampler.
 ## Running the MCMC sampling
 
 The script `depletion_mcmc.py` runs the sampler for 5000 iterations with 100 walkers 
-and discards the first 500 samples. These sampling parameters can be changed in the 
-script using the -s option for number of steps/iterations, -n for the number of walkers, 
-and -b for the number of 'burn-in' steps to discard.
+and discards the first 500 samples.
 
-    %] python depletion_mcmc.py datafile.csv
+    python depletion_mcmc.py datafile.csv
+
+These sampling parameters can be changed in the script using the `-s` option for number
+of steps/iterations, `-n` for the number of walkers, 
+and `-b` for the number of 'burn-in' steps to discard:
+
+    python depletion_mcmc.py datafile.csv -s 1000 -b 200 -n 200
 
